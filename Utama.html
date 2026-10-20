@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Utama</title>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 2px solid #333333;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .header-banner {
+            width: 100%;
+            height: 160px;
+            background-color: #e2e8f0;
+            border: 2px solid #333333;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-image: repeating-linear-gradient(45deg, #cbd5e1 0, #cbd5e1 10px, #e2e8f0 10px, #e2e8f0 20px);
+        }
+
+        .header-banner h1 {
+            background-color: #ffffff;
+            padding: 8px 20px;
+            border: 2px solid #333333;
+            border-radius: 4px;
+            color: #333333;
+            font-size: 24px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            text-align: center;
+            padding: 12px 5px;
+            background-color: #ffffff;
+            border: 2px solid #333333;
+            border-radius: 6px;
+            color: #333333;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            transition: background-color 0.2s;
+        }
+
+        .nav-btn:hover {
+            background-color: #e2e8f0;
+        }
+
+        .nav-btn.active {
+            background-color: #333333;
+            color: #ffffff;
+        }
+
+        .content-area {
+            border: 2px solid #333333;
+            border-radius: 6px;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background-color: #ffffff;
+            min-height: 250px;
+        }
+
+        .content-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .content-image img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border: 2px solid #333333;
+            border-radius: 6px;
+        }
+
+        .content-text {
+            flex: 2;
+        }
+
+        .content-text h2 {
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .content-text p {
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            border: 2px solid #333333;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #333333;
+            background-color: #ffffff;
+        }
+
+        @media (max-width: 600px) {
+            .nav-menu {
+                flex-direction: column;
+            }
+
+            .content-area {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+
+        <header class="header-banner">
+            <h1>Image</h1>
+        </header>
+
+        <nav class="nav-menu">
+            <a href="utama.html" class="nav-btn active">Home</a>
+            <a href="galeri.html" class="nav-btn">Galeri</a>
+            <a href="produk.html" class="nav-btn">Produk</a>
+            <a href="kontak.html" class="nav-btn">Kontak</a>
+        </nav>
+
+        <main class="content-area">
+
+            <div class="content-image">
+                <img src="Manchester_City_F.C.-Logo.wine.png" alt="Gambar Konten">
+            </div>
+
+            <div class="content-text">
+                <h2>Selamat datang di MCSCI</h2>
+                <p>MCSCI adalah Manchester City Supported Club Indonesia.</p>
+                <p>Gunakan struktur CSS sederhana ini untuk mempelajari dasar-dasar tata letak Flexbox dan HTML dasar.</p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            Copyright &copy; 2026
+        </footer>
+
+    </div>
+
+</body>
+</html>
