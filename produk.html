@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Halaman Produk</title>
+    <style>
+        /* CSS yang sama */
+        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        .container { width: 80%; margin: 20px auto; background-color: white; border: 1px solid #ccc; }
+        .header { padding: 0; text-align: center; border-bottom: 1px solid #ccc; }
+        .banner-image { 
+            width: 100%; 
+            height: 300px; /* Tinggi banner disesuaikan */
+            background-image: url('93f08ce533eac09775944db25ed59e80.jpg');
+            background-size: cover; /* Agar gambar memenuhi area banner */
+            background-position: top center; /* Menyesuaikan posisi gambar agar fokus ke pemain */
+            background-repeat: no-repeat; }
+        .nav { display: flex; justify-content: space-around; padding: 10px; border-bottom: 1px solid #ccc; background-color: #eaeaea; }
+        .nav a { text-decoration: none; color: black; padding: 5px 15px; border: 1px solid #999; background-color: white; }
+        .nav a:hover { background-color: #ddd; }
+        .content { padding: 20px; min-height: 200px; }
+        /* CSS Khusus untuk Grid Galeri */
+        /* Grid Layout untuk Produk/Galeri */
+        .grid-container {
+            display: grid;
+            /* Mengatur agar tampil 3 kolom persis seperti pada gambar */
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; /* Jarak antar kotak */
+            margin-top: 20px;
+        }
+        
+        /* Kotak untuk masing-masing gambar & deskripsi */
+        .grid-item {
+            background-color: white;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: column; /* Menyusun gambar di atas, teks di bawah */
+            justify-content: space-between;
+        }
+        
+        /* Pengaturan Gambar */
+        .grid-item img {
+            width: 100%;
+            height: auto; /* Membiarkan tinggi menyesuaikan proporsi gambar asli */
+            display: block;
+            border-bottom: 1px solid #eaeaea; /* Garis batas tipis antara gambar dan teks */
+        }
+        
+        /* Ruang dan spasi untuk deskripsi di bawah gambar */
+        .deskripsi {
+            padding: 15px; /* Memberikan spasi/ruang di sekitar teks */
+            text-align: justify; /* Membuat teks rata kanan-kiri (justify) */
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* Responsif: Jika layar mengecil (misal di HP), menjadi 1 atau 2 kolom */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .footer { padding: 10px; text-align: center; border-top: 1px solid #ccc; background-color: #eaeaea; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="banner-image"></div>
+    </div>
+
+    <div class="nav">
+        <a href="utama.html">Home</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="produk.html">Produk</a>
+        <a href="kontak.html">Kontak</a>
+    </div>
+
+    <!-- Area Konten Utama -->
+    <div class="content">
+        <h2>Produk</h2>
+        
+        <!-- Grid Kontainer -->
+        <div class="grid-container">
+            
+            <!-- Item 1 -->
+            <div class="grid-item">
+                <!-- Ganti src dengan nama file gambar Anda -->
+                <img src="25.avif" alt="Jersey 1">
+                <!-- Area Deskripsi -->
+                <div class="deskripsi">
+                    <strong>Jersey Home 24/25</strong><br><br>
+                    Ini adalah deskripsi untuk produk pertama. Teks ini menggunakan format justify agar terlihat rapi dan rata pada sisi kanan dan kirinya.
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="grid-item">
+                <img src="25-Away-Jersey-Men.avif" alt="Jersey 2">
+                <div class="deskripsi">
+                    <strong>Jersey Away 24/25</strong><br><br>
+                    Tuliskan spesifikasi produk di sini. Terdapat padding yang memberikan jarak aman antara gambar dan teks deskripsi ini.
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="grid-item">
+                <img src="26-Pria.avif" alt="Jersey 3">
+                <div class="deskripsi">
+                    <strong>Jersey Home 25/26</strong><br><br>
+                    Anda bisa menambahkan harga atau info lainnya di area ini. Teks akan otomatis menyesuaikan dengan lebar kotak.
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="grid-item">
+                <img src="26-Away-Jersey-Men.avif" alt="Jersey 3">
+                <div class="deskripsi">
+                    <strong>Jersey Away 25/26</strong><br><br>
+                    Anda bisa menambahkan harga atau info lainnya di area ini. Teks akan otomatis menyesuaikan dengan lebar kotak.
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="grid-item">
+                <img src="27-Pria.avif" alt="Jersey 3">
+                <div class="deskripsi">
+                    <strong>Jersey Home 26/27</strong><br><br>
+                    Anda bisa menambahkan harga atau info lainnya di area ini. Teks akan otomatis menyesuaikan dengan lebar kotak.
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="grid-item">
+                <img src="27-Away-Jersey-Men.avif" alt="Jersey 3">
+                <div class="deskripsi">
+                    <strong>Jersey Away 26/27</strong><br><br>
+                    Anda bisa menambahkan harga atau info lainnya di area ini. Teks akan otomatis menyesuaikan dengan lebar kotak.
+                </div>
+            </div>
+    </div>
+
+    <div class="footer">
+        Copyright &copy; 2026
+    </div>
+</div>
+
+</body>
+</html>

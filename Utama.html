@@ -3,177 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Utama</title>
-    
+    <title>MCSCI</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
+        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        .container { width: 80%; margin: 20px auto; background-color: white; border: 1px solid #ccc; }
+        
+        /* Header / Banner */
+        .header { padding: 0; text-align: center; border-bottom: 1px solid #ccc; }
+        .banner-image { 
+            width: 100%; 
+            height: 300px; /* Tinggi banner disesuaikan */
+            background-image: url('93f08ce533eac09775944db25ed59e80.jpg');
+            background-size: cover; /* Agar gambar memenuhi area banner */
+            background-position: top center; /* Menyesuaikan posisi gambar agar fokus ke pemain */
+            background-repeat: no-repeat;
         }
-
-        body {
-            background-color: #f0f2f5;
-            padding: 20px;
+        
+        /* Navigasi */
+        .nav { display: flex; justify-content: space-around; padding: 10px; border-bottom: 1px solid #ccc; background-color: #eaeaea; }
+        .nav a { text-decoration: none; color: black; padding: 5px 15px; border: 1px solid #999; background-color: white; }
+        .nav a:hover { background-color: #ddd; }
+        
+        /* Konten Utama */
+        .content { padding: 20px; display: flex; min-height: 200px; }
+        
+        /* Khusus untuk layout konten di utama.html */
+        /* CSS tambahan agar gambar di konten responsif dan pas di dalam kotaknya */
+        .content-image { 
+            width: 30%; 
+            margin-right: 20px; 
+            overflow: hidden; /* Menyembunyikan bagian gambar yang melebihi kotak */
+            border: none; /* Menghilangkan border putus-putus jika gambar sudah ada */
         }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            border: 2px solid #333333;
-            border-radius: 8px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .header-banner {
-            width: 100%;
-            height: 160px;
-            background-color: #e2e8f0;
-            border: 2px solid #333333;
-            border-radius: 6px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            background-image: repeating-linear-gradient(45deg, #cbd5e1 0, #cbd5e1 10px, #e2e8f0 10px, #e2e8f0 20px);
-        }
-
-        .header-banner h1 {
-            background-color: #ffffff;
-            padding: 8px 20px;
-            border: 2px solid #333333;
-            border-radius: 4px;
-            color: #333333;
-            font-size: 24px;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 10px;
-        }
-
-        .nav-btn {
-            flex: 1;
-            text-align: center;
-            padding: 12px 5px;
-            background-color: #ffffff;
-            border: 2px solid #333333;
-            border-radius: 6px;
-            color: #333333;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 15px;
-            transition: background-color 0.2s;
-        }
-
-        .nav-btn:hover {
-            background-color: #e2e8f0;
-        }
-
-        .nav-btn.active {
-            background-color: #333333;
-            color: #ffffff;
-        }
-
-        .content-area {
-            border: 2px solid #333333;
-            border-radius: 6px;
-            padding: 20px;
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            background-color: #ffffff;
-            min-height: 250px;
-        }
-
-        .content-image {
-            flex: 1;
-            text-align: center;
-        }
-
+        
         .content-image img {
             width: 100%;
-            max-width: 250px;
-            height: auto;
-            border: 2px solid #333333;
-            border-radius: 6px;
-        }
+            height: 100%;
+            object-fit: cover; /* Menjaga proporsi gambar agar tidak gepeng */
+            display: block;
+        }.content-text { width: 70%; }
 
-        .content-text {
-            flex: 2;
-        }
-
-        .content-text h2 {
-            margin-bottom: 10px;
-            color: #333333;
-        }
-
-        .content-text p {
-            color: #555555;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .footer {
-            border: 2px solid #333333;
-            border-radius: 6px;
-            padding: 15px;
-            text-align: center;
-            font-weight: bold;
-            color: #333333;
-            background-color: #ffffff;
-        }
-
-        @media (max-width: 600px) {
-            .nav-menu {
-                flex-direction: column;
-            }
-
-            .content-area {
-                flex-direction: column;
-            }
-        }
+        /* Footer */
+        .footer { padding: 10px; text-align: center; border-top: 1px solid #ccc; background-color: #eaeaea; }
     </style>
 </head>
 <body>
 
-
-    <div class="container">
-
-        <header class="header-banner">
-            <h1>Image</h1>
-        </header>
-
-        <nav class="nav-menu">
-            <a href="utama.html" class="nav-btn active">Home</a>
-            <a href="galeri.html" class="nav-btn">Galeri</a>
-            <a href="produk.html" class="nav-btn">Produk</a>
-            <a href="kontak.html" class="nav-btn">Kontak</a>
-        </nav>
-
-        <main class="content-area">
-
-            <div class="content-image">
-                <img src="Manchester_City_F.C.-Logo.wine.png" alt="Gambar Konten">
-            </div>
-
-            <div class="content-text">
-                <h2>Selamat datang di MCSCI</h2>
-                <p>MCSCI adalah Manchester City Supported Club Indonesia.</p>
-                <p>Gunakan struktur CSS sederhana ini untuk mempelajari dasar-dasar tata letak Flexbox dan HTML dasar.</p>
-            </div>
-        </main>
-
-        <footer class="footer">
-            Copyright &copy; 2026
-        </footer>
-
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <div class="banner-image"></div>
     </div>
+
+    <!-- Navigasi -->
+    <div class="nav">
+        <a href="utama.html">Home</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="produk.html">Produk</a>
+        <a href="kontak.html">Kontak</a>
+    </div>
+
+    <!-- Area Konten Utama -->
+    <div class="content">
+        <div class="content-image">
+            <img src="Manchester_City_F.C.-Logo.wine.png" alt="Foto Konten">
+        </div>
+        <div class="content-text">
+            <h3>Selamat Datang di Manchester City Supported Club Indonesia</h3>
+            <p>Manchester City Football Club (juga dikenal sebagai Man City) adalah sebuah klub sepak bola profesional dari Inggris yang bermain di Liga Utama Inggris. Klub ini bermarkas di Stadion Etihad, Manchester. Pertandingan pertama dimainkan pada bulan November 1880. Pada saat itu masih bernama St Mark's (West Gorton). Pada tahun 1887 berubah nama menjadi Ardwick A.F.C., dan pada tahun 1894 menjadi Manchester City F.C. Manchester City telah meraih sepuluh gelar Liga Inggris, delapan Piala FA, sembilan Piala Liga Inggris, tujuh Community Shield FA, satu Liga Champions UEFA, satu Piala Winners Eropa, satu Piala Super UEFA, serta satu Piala Dunia Antarklub FIFA. Klub ini mengalami era kesuksesan pertamanya pada akhir 1960-an hingga awal 1970-an. Pada periode tersebut, City dilatih oleh Joe Mercer dengan Malcolm Allison sebagai asisten manajer, serta diperkuat oleh sejumlah pemain seperti Colin Bell, Mike Summerbee, dan Francis Lee.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        Copyright &copy; 2026
+    </div>
+</div>
 
 </body>
 </html>
