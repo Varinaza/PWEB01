@@ -2,184 +2,56 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Halaman Galeri</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri</title>
     <style>
-        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-        .container { width: 80%; margin: 20px auto; background-color: white; border: 1px solid #ccc; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .container { width: 100%; }
         
-        /* Header / Banner */
-        .header { padding: 0; text-align: center; border-bottom: 1px solid #ccc; }
-        .banner-image { 
-            width: 100%; 
-            height: 300px; /* Tinggi banner disesuaikan */
-            background-image: url('BANNER.jpg');
-            background-size: cover; /* Agar gambar memenuhi area banner */
-            background-position: top center; /* Menyesuaikan posisi gambar agar fokus ke pemain */
-            background-repeat: no-repeat;
-        }
+        table.menu-table { width: 100%; border-collapse: collapse; }
+        table.menu-table, table.menu-table th, table.menu-table td { border: 1px solid black; }
+        table.menu-table td { text-align: center; padding: 15px; }
         
-        /* Navigasi */
-        .nav { display: flex; justify-content: space-around; padding: 10px; border-bottom: 1px solid #ccc; background-color: #eaeaea; }
-        .nav a { text-decoration: none; color: black; padding: 5px 15px; border: 1px solid #999; background-color: white; }
-        .nav a:hover { background-color: #ddd; }
+        .banner { height: 250px; background: repeating-linear-gradient(45deg, #f4f4f4, #f4f4f4 10px, #e8e8e8 10px, #e8e8e8 20px); font-size: 28px; color: #333; }
+        .menu-link { text-decoration: none; color: black; font-weight: bold; }
+        .menu-link:hover { text-decoration: underline; color: blue; }
         
-        /* Konten Utama */
-        .content { padding: 20px; min-height: 200px; }
+        .content { min-height: 400px; padding: 40px; }
         
-        /* CSS Khusus untuk Grid Galeri */
-        /* Grid Layout untuk Produk/Galeri */
-        .grid-container {
-            display: grid;
-            /* Mengatur agar tampil 3 kolom persis seperti pada gambar */
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 20px; /* Jarak antar kotak */
-            margin-top: 20px;
-        }
+        /* Format 3 tabel/kolom untuk galeri */
+        table.item-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table.item-table td { border: 1px solid black; text-align: center; padding: 50px; width: 33.33%; background-color: #f0f0f0; }
         
-        /* Kotak untuk masing-masing gambar & deskripsi */
-        .grid-item {
-            background-color: white;
-            border: 1px solid #ccc;
-            display: flex;
-            flex-direction: column; /* Menyusun gambar di atas, teks di bawah */
-            justify-content: space-between;
-        }
-        
-        /* Pengaturan Gambar */
-        .grid-item img {
-            width: 100%;
-            height: auto; /* Membiarkan tinggi menyesuaikan proporsi gambar asli */
-            display: block;
-            border-bottom: 1px solid #eaeaea; /* Garis batas tipis antara gambar dan teks */
-        }
-        
-        /* Ruang dan spasi untuk deskripsi di bawah gambar */
-        .deskripsi {
-            padding: 15px; /* Memberikan spasi/ruang di sekitar teks */
-            text-align: justify; /* Membuat teks rata kanan-kiri (justify) */
-            font-size: 14px;
-            color: #333;
-        }
-
-        /* Responsif: Jika layar mengecil (misal di HP), menjadi 1 atau 2 kolom */
-        @media (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 480px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .gallery-item {
-            width: 100%;
-            height: 200px;
-            background-color: #e0e0e0; /* Warna latar jika foto belum ada */
-            border: 1px solid #ccc;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Menjaga proporsi gambar tidak gepeng */
-            display: block;
-        }
-
-        /* Footer */
-        .footer { padding: 10px; text-align: center; border-top: 1px solid #ccc; background-color: #eaeaea; }
+        .footer { text-align: center; padding: 20px; background-color: #f9f9f9; }
     </style>
 </head>
 <body>
-
 <div class="container">
-    <!-- Header -->
-    <div class="header">
-        <div class="banner-image"></div>
-    </div>
-
-    <!-- Navigasi -->
-    <div class="nav">
-        <a href="utama.html">Home</a>
-        <a href="galeri.html">Galeri</a>
-        <a href="produk.html">Produk</a>
-        <a href="kontak.html">Kontak</a>
-    </div>
-
-    <!-- Area Konten Utama -->
+    <table class="menu-table">
+        <tr>
+            <td colspan="4" class="banner"><img src='BANNER.jpg'></img></td>
+        </tr>
+        <tr>
+            <td width="25%"><a href="utama.html" class="menu-link">Home</a></td>
+            <td width="25%"><a href="galeri.html" class="menu-link">Galeri</a></td>
+            <td width="25%"><a href="produk.html" class="menu-link">Produk</a></td>
+            <td width="25%"><a href="kontak.html" class="menu-link">Kontak</a></td>
+        </tr>
+    </table>
     <div class="content">
         <h2>Galeri</h2>
-        
-        <!-- Grid Kontainer -->
-        <div class="grid-container">
-            
-            <!-- Item 1 -->
-            <div class="grid-item">
-                <!-- Ganti src dengan nama file gambar Anda -->
-                <img src="FA CUP.jpeg" alt="Gambar 1">
-                <!-- Area Deskripsi -->
-                <div class="deskripsi">
-                    <strong>Winner FA Cup 2025/2026</strong><br><br>
-                    Ini adalah deskripsi untuk produk pertama. Teks ini menggunakan format justify agar terlihat rapi dan rata pada sisi kanan dan kirinya.
-                </div>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="grid-item">
-                <img src="EPL 4 IN A ROW.jpeg" alt="Gambar 2">
-                <div class="deskripsi">
-                    <strong>4-IN-A-ROW EPL 2021-2024</strong><br><br>
-                    Tuliskan spesifikasi produk di sini. Terdapat padding yang memberikan jarak aman antara gambar dan teks deskripsi ini.
-                </div>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="grid-item">
-                <img src="CARABAO CUP.jpeg" alt="Gambar 3">
-                <div class="deskripsi">
-                    <strong>Winner Carabao Cup 2025/2026</strong><br><br>
-                    Anda bisa menambahkan harga atau info lainnya di area ini. Teks akan otomatis menyesuaikan dengan lebar kotak.
-                </div>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="grid-item">
-                <img src="26-Away-Jersey-Men.avif" alt="Gambar 4">
-                <div class="deskripsi">
-                    <strong>Jersey Away 25/26</strong><br><br>
-                    Anda bisa menambahkan harga atau info lainnya di area ini. Teks akan otomatis menyesuaikan dengan lebar kotak.
-                </div>
-            </div>
-
-            <!-- Item 5 -->
-            <div class="grid-item">
-                <img src="27-Pria.avif" alt="Gambar 5">
-                <div class="deskripsi">
-                    <strong>Jersey Home 26/27</strong><br><br>
-                    Anda bisa menambahkan harga atau info lainnya di area ini. Teks akan otomatis menyesuaikan dengan lebar kotak.
-                </div>
-            </div>
-
-            <!-- Item 6 -->
-            <div class="grid-item">
-                <img src="27-Away-Jersey-Men.avif" alt="Gambar 6">
-                <div class="deskripsi">
-                    <strong>Jersey Away 26/27</strong><br><br>
-                    Anda bisa menambahkan harga atau info lainnya di area ini. Teks akan otomatis menyesuaikan dengan lebar kotak.
-                </div>
-            </div>
+        <p>Berikut adalah koleksi gambar kami:</p>
+        <table class="item-table">
+            <tr>
+                <td><img src='CARABAO CUP.jpeg' width="100%" height="100%"></img></td>
+                <td><img src='EPL 4 IN A ROW.jpeg' width="100%" height="100%"></img></td>
+                <td><img src='FA CUP.jpeg' width="100%" height="100%"></img></td>
+            </tr>
+        </table>
     </div>
-
-    <!-- Footer -->
     <div class="footer">
         Copyright &copy; 2026
     </div>
 </div>
-
 </body>
 </html>
