@@ -1,101 +1,294 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ruangkata - tempat kata-kata menemukan bentuk.">
-    <title>Ruangkata. — Setiap kata punya ruang.</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSP2.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ruangkata — tempat kata-kata menemukan bentuk.">
+  <title>RuangKata. — Setiap kata punya ruang.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+:root {
+  --paper: #f7f5ec;
+  --ink: #26352c;
+  --muted: #68736a;
+  --line: #d9d8cc;
+  --red: #b54b30;
+  --yellow: #edc35b;
+  --green: #263e32;
+  --mono: "DM Mono", monospace;
+  --sans: "DM Sans", sans-serif;
+  --serif: "Playfair Display", Georgia, serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+a { color: inherit; text-decoration: none; }
+.page-width { width: min(1120px, calc(100% - 12%)); margin-inline: auto; }
+.site-header { width: min(1120px, calc(100% - 12%)); min-height: 78px; margin: auto; border-bottom: 1px solid #9da397; display: flex; align-items: center; justify-content: space-between; position: relative; }
+.brand { font: 700 24px var(--serif); letter-spacing: -1.3px; color: #1f3028; }
+.brand span { color: var(--red); }
+.main-nav { display: flex; gap: 34px; margin-left: 110px; font: 10px var(--sans); }
+.main-nav a:hover, .text-link:hover { color: var(--red); }
+.nav-arrow { margin-left: 7px; }
+.issue, .micro-heading, .eyebrow, .hero-foot, .section-meta, .article-meta, .card-top, .quote-foot, .experiment code, .site-footer > p, .site-footer > span {
+  font-family: var(--mono); font-size: 8px; letter-spacing: 1.15px;
+}
+.issue { color: #68736a; }
+.menu-toggle { display: none; border: 0; background: none; font-size: 20px; color: var(--ink); }
+.hero { padding-top: 40px; }
+.eyebrow { color: #516157; display: flex; align-items: center; gap: 9px; }
+.dot { width: 5px; height: 5px; border-radius: 50%; background: var(--red); display: inline-block; }
+.hero-grid { display: grid; grid-template-columns: 1fr 310px; align-items: end; gap: 50px; padding: 22px 0 24px; }
+h1 { font: 500 clamp(58px, 8.2vw, 104px)/.98 var(--serif); letter-spacing: -5.5px; margin: 0; }
+h1 em { color: var(--red); font-weight: 500; }
+.asterisk { display: inline-block; color: var(--red); font: 38px var(--sans); margin-left: 15px; vertical-align: 22px; }
+.hero-aside { padding: 0 0 8px 0; font-size: 13px; line-height: 1.8; }
+.hero-aside .micro-heading { margin-bottom: 15px; }
+.hero-aside p { margin: 0 0 18px; }
+.text-link { display: flex; justify-content: space-between; align-items: center; width: 190px; padding: 8px 0; border-bottom: 1px solid var(--ink); font: 10px var(--serif); }
+.hero-foot { border-top: 1px solid var(--line); display: flex; justify-content: space-between; padding: 17px 0; color: #5e695f; font-size: 7px; }
+.ticker { background: var(--yellow); border-block: 1px solid #c29e42; overflow: hidden; }
+.ticker-track { max-width: 1120px; margin: auto; min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 0 2px; white-space: nowrap; }
+.ticker-track span { font: italic 19px var(--serif); }
+.ticker-track b { font: 16px var(--serif); font-weight: 400; }
+.feature { padding: 42px 0 44px; }
+.section-meta { display: flex; justify-content: space-between; color: #526055; font-size: 7px; }
+.feature-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 90px; padding: 30px 0 0; }
+.article-meta { display: flex; gap: 20px; color: #788077; font-size: 7px; }
+.article-meta span:first-child { color: var(--red); }
+.article h2 { font: 500 36px/1.05 var(--serif); letter-spacing: -1.2px; margin: 17px 0 14px; }
+.article h2 em { font-weight: 500; }
+.lead { font: italic 17px/1.5 var(--serif); margin: 0 0 17px; }
+.article > p:not(.lead) { font-size: 11px; line-height: 1.9; max-width: 590px; color: #39453d; }
+.dropcap:first-letter { float: left; font: 500 52px/.8 var(--serif); color: var(--red); padding: 5px 8px 0 0; }
+.article .closing-line { color: var(--red) !important; font: italic 12px var(--serif); margin-top: 15px; }
+.article-rule { border-top: 1px solid var(--line); margin-top: 28px; text-align: right; padding-top: 10px; color: #344b3e; font-size: 10px; }
+.letter-card { align-self: start; background: #eae9df; border-top: 2px solid var(--ink); padding: 20px 25px 24px; margin-top: 0; }
+.card-top { display: flex; justify-content: space-between; color: #5d695e; font-size: 7px; }
+.big-letters { font: 500 88px/.95 var(--serif); margin: 28px 0 16px; letter-spacing: -7px; }
+.big-letters span { color: var(--red); }
+.letter-card .micro-heading { font-size: 7px; }
+.letter-quote { font: italic 16px/1.45 var(--serif); margin: 16px 0 20px; }
+.letter-definitions { border-top: 1px solid #d5d5c9; padding-top: 13px; display: grid; gap: 12px; font-size: 10px; }
+.letter-definitions strong, .letter-definitions small { display: block; }
+.letter-definitions small { color: #667167; margin-top: 3px; font: 9px var(--serif); }
+.tiny-note { font: 9px/1.7 var(--serif); color: #68736a; margin: 17px 0 0; }
+.quote-section { background: var(--green); color: var(--paper); position: relative; }
+.quote-inner { padding: 26px 0 25px; position: relative; }
+.quote-inner .section-meta { color: #e4dfc9; }
+.quote-mark { position: absolute; left: -78px; top: 5px; color: #52665a; font: 100px/.9 var(--serif); }
+blockquote { text-align: center; font: 500 clamp(25px, 3.1vw, 37px)/1.3 var(--serif); letter-spacing: -.8px; margin: 35px 0 32px; }
+blockquote em { color: var(--yellow); }
+.quote-foot { display: flex; justify-content: space-between; padding: 0 0 14px; border-bottom: 1px solid #506256; font-size: 7px; }
+.quote-foot span:last-child { color: var(--yellow); }
+.experiments { padding: 34px 0 38px; }
+.experiment-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 28px; border: 1px solid #8f978a; }
+.experiment { min-height: 190px; padding: 24px 22px 18px; }
+.experiment + .experiment { border-left: 1px solid #8f978a; }
+.experiment .micro-heading { font-size: 7px; }
+.experiment h3 { font: 500 34px var(--serif); margin: 30px 0 12px; }
+.experiment p { font: 10px/1.7 var(--sans); margin: 0 0 14px; }
+.experiment code { font-size: 7px; letter-spacing: 0; }
+.exp-yellow { background: var(--yellow); }
+.exp-red { background: var(--red); color: #fff7e9; }
+.exp-grid { background-color: #e8e9df; background-image: linear-gradient(#dfe1d7 1px, transparent 1px), linear-gradient(90deg, #dfe1d7 1px, transparent 1px); background-size: 15px 15px; }
+.exp-grid h3 { font: 700 28px var(--sans); letter-spacing: -1.5px; }
+.section-end { border-top: 1px solid var(--line); text-align: right; padding-top: 10px; margin-top: 15px; font-size: 10px; }
+.lab { border-top: 1px solid #aeb2a6; padding: 35px 0 58px; }
+.lab-intro h2 { font: 500 29px/1.1 var(--serif); letter-spacing: -1px; margin: 20px 0 15px; }
+.lab-intro p { color: #6c756b; font: 11px/1.7 var(--serif); }
+.playground { margin-top: 28px; border: 1px solid var(--line); display: grid; grid-template-columns: 260px 1fr; }
+.playground-controls { padding: 22px; display: grid; gap: 10px; border-right: 1px solid var(--line); }
+.playground-controls label { font: 7px var(--mono); letter-spacing: 1px; color: #677268; margin-top: 5px; }
+.playground-controls input[type="text"], .playground-controls select { width: 100%; border: 0; border-bottom: 1px solid #aab0a5; background: transparent; padding: 8px 2px; color: var(--ink); font: 12px var(--sans); outline: none; }
+.playground-controls input[type="range"] { accent-color: var(--red); width: 100%; }
+.playground-preview { min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px; }
+.playground-preview .micro-heading { color: #69736a; font-size: 7px; }
+.preview-word { font: 500 52px var(--serif); margin: 25px 0 15px; transition: all .2s ease; overflow-wrap: anywhere; text-align: center; }
+.preview-word.sans { font-family: var(--sans); font-weight: 700; }
+.preview-word.italic { font-style: italic; color: var(--red); }
+.preview-word.wide { letter-spacing: .18em; }
+.preview-caption { font: italic 11px var(--serif); color: #737c72; }
+.closing { border-top: 1px solid #aeb2a6; border-bottom: 1px solid #aeb2a6; text-align: center; padding: 45px 0 40px; }
+.closing .micro-heading { color: var(--red); }
+.closing p { font: 500 20px var(--serif); margin: 18px 0 3px; }
+.closing > em { color: #7c8174; font: italic 17px var(--serif); }
+.closing a { display: block; width: max-content; margin: 26px auto 0; border-bottom: 1px solid var(--ink); padding-bottom: 5px; font: 9px var(--serif); }
+.site-footer { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+.site-footer .brand { font-size: 19px; }
+.site-footer > p, .site-footer > span { font-size: 6px; color: #677268; }
+
+
+.lab-sample { max-width: 600px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 24px 0; margin-top: 25px; }
+.lab-sample .sample-word { font: italic 34px var(--serif); color: var(--red); margin: 0 0 10px; }
+.lab-sample p:last-child { font: 11px/1.8 var(--sans); margin: 0; color: #536055; }
+
+@media (max-width: 760px) {
+  .page-width, .site-header { width: min(100% - 40px, 600px); }
+  .site-header { min-height: 68px; }
+  .main-nav { display: none; position: absolute; z-index: 5; top: 67px; left: 0; right: 0; margin: 0; padding: 18px; background: var(--paper); border: 1px solid var(--line); flex-direction: column; gap: 18px; }
+  .main-nav.open { display: flex; }
+  .issue { margin-left: auto; margin-right: 18px; font-size: 6px; }
+  .menu-toggle { display: block; cursor: pointer; }
+  .hero { padding-top: 32px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 25px; padding-top: 25px; }
+  h1 { font-size: clamp(55px, 12vw, 82px); letter-spacing: -3px; }
+  .asterisk { font-size: 25px; vertical-align: 16px; margin-left: 6px; }
+  .hero-aside { max-width: 330px; padding-left: 3px; }
+  .hero-foot { font-size: 6px; }
+  .ticker-track { padding: 0 20px; gap: 24px; min-height: 43px; }
+  .ticker-track span { font-size: 16px; }
+  .section-meta { gap: 15px; font-size: 6px; }
+  .feature-grid { grid-template-columns: 1fr; gap: 30px; }
+  .article h2 { font-size: 33px; }
+  .letter-card { max-width: 360px; width: 100%; }
+  .quote-mark { left: -12px; top: 0; font-size: 70px; opacity: .55; }
+  blockquote { font-size: clamp(23px, 5.5vw, 32px); margin: 36px 0 30px; }
+  .experiment-grid { grid-template-columns: 1fr; }
+  .experiment { min-height: 170px; }
+  .experiment + .experiment { border-left: 0; border-top: 1px solid #8f978a; }
+  .experiment h3 { margin-top: 22px; }
+  .playground { grid-template-columns: 1fr; }
+  .playground-controls { border-right: 0; border-bottom: 1px solid var(--line); }
+  .playground-preview { min-height: 190px; }
+  .site-footer { flex-wrap: wrap; padding: 20px 0; }
+  .site-footer > p { order: 3; width: 100%; }
+}
+@media (max-width: 420px) {
+  .issue { display: none; }
+  .hero-foot { align-items: flex-start; gap: 15px; }
+  .hero-foot a { text-align: right; }
+  .section-meta span:last-child { text-align: right; }
+  .desktop-only { display: none; }
+  .closing p { font-size: 18px; }
+  .closing > em { font-size: 15px; }
+}
+
+  </style>
 </head>
 <body>
-    <header class="site-header" id="atas">
-        <a class="brand" href="#atas">ruang<span>kata.</span></a>
-        <nav class="main-nav" aria-label="Navigasi utama">
-            <a href="#catatan">Catatan</a>
-            <a href="#kutipan">Kutipan</a>
-            <a href="#laboratorium">Laboratorium <span class="nav-arrow">↗</span></a>
-        </nav>
-        <div class="issue"> JURNAL DIGITAL / VOL. 01</div>
-        <button class="menu-toogle" aria-label="Buka navigasi" aria-expanded="false">☰</button>
-    </header>
+  <header class="site-header" id="atas">
+    <a class="brand" href="#atas">ruang<span>kata.</span></a>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <a href="#catatan">Catatan</a>
+      <a href="#kutipan">Kutipan</a>
+      <a href="#laboratorium">Laboratorium <span class="nav-arrow">↗</span></a>
+    </nav>
+    <div class="issue">JURNAL DIGITAL / VOL. 01</div>
+    <button class="menu-toggle" aria-label="Buka navigasi" aria-expanded="false">☰</button>
+  </header>
 
-    <main>
-        <section class="hero-page-width">
-            <div class="eyebrow"><span class="dot"></span>TEMPAT KATA KATA MENENUKAN BENTUK</div>
-            <div class="hero-grid">
-                <h1>Setiap kata <span class="asterisk">✳</span><br>punya <em>ruang.</em></h1>
-                <div class="hero-aside">
-                    <p class="micro-heading">SEBUAH EKSPERIMEN TIPOGRAFI</p>
-                    <p>Tentang kalimat yang singgah,<br>pikiran yang tumbuh, dan keindahan<br>diantara keduanya.</p>
-                    <a class="text-link" href="#catatan">Mulai menjelajah<span>↘</span></a>
-                </div>
-            </div>
-            <div class="hero-foot">
-                <span>SEDIKIT KATA. BANYAK MAKNA.</span>
-                <a href="#catatan">SCROLL UNTUK MEMBACA ↓</a>
-            </div>
-        </section>
-
-        <div class="ticker" aria-label="Topik ruangkata">
-            <div class="ticker-track">
-                <span>kata &amp; ruang</span><b>✳</b><span>bentuk &amp; makna</span><b>✳</b><span>huruf &amp; rasa</span><b>✳</b><span>kata &amp; ruang</span><b>✳</b>
-            </div>
+  <main>
+    <section class="hero page-width">
+      <div class="eyebrow"><span class="dot"></span> TEMPAT KATA-KATA MENEMUKAN BENTUK</div>
+      <div class="hero-grid">
+        <h1>Setiap kata<span class="asterisk">✳</span><br>punya <em>ruang.</em></h1>
+        <div class="hero-aside">
+          <p class="micro-heading">SEBUAH EKSPERIMEN TIPOGRAFI</p>
+          <p>Tentang kalimat yang singgah,<br>pikiran yang tumbuh, dan keindahan<br>di antara keduanya.</p>
+          <a class="text-link" href="#catatan">Mulai menjelajah <span>↘</span></a>
         </div>
+      </div>
+      <div class="hero-foot">
+        <span>SEDIKIT KATA. BANYAK MAKNA.</span>
+        <a href="#catatan">SCROLL UNTUK MEMBACA ↓</a>
+      </div>
+    </section>
 
-        <section class="feature-page-width" id="catatan">
-            <div class="section-meta"><span>01 / CATATAN PILIHAN</span><span>MEMBACA DENGAN PERLAHAN</span></div>
-            <div class="feature-grid">
-                <article class="article">
-                    <div class="article-meta"><span>TENTANG KESEHARIAN</span><span>3 MENIT BACA</span></div>
-                    <h2>Seni menemukan <br>jeda di tengah <em>riuh.</em></h2>
-                    <p class="lead"><em>Tidak semua ruang harus diisi. Tidak semua waktu<br class="desktop-only"> harus berlari.</em></p>
-                    <p class="dropcap">Pagi datang tanpa terburu-buru. Cahaya menyelinap lewat tirai, menyentuh sudut meja, lalu berhenti di halaman buku yang semalam belum selesai dibaca. Di luar, kota mulai menyusun suaranya. di dalam, seseorang tengah mengumpulkan cerita.</p>
-                    <p>Kita sering lupa bahwa jeda juga bagian dari perjalanan. Berhenti sebentar bukan berarti kehilangan arah. Kadang, justru dalam diam, kita mendengar hal-hal yang selama ini tertutup oleh kesibukan.</p>
-                    <p class="closing-line">Hari ini, beri dirimu sedikit ruang untuk sekadar ada.</p>
-                    <div class="artical-rule"><span>✦</span></div>
-                </article>
-                <aside class="letter-card">
-                    <div class="card-top"><span>CATATAN PINGGIR</span><span>↗</span></div>
-                    <div class="big-letter">Aa<span>.</span></div>
-                    <p class="micro-heading">SERIF MEETS SANS-SERIF</p>
-                    <p class="letter-quote">Dua karakter berbeda.<br>Satu cerita yang sama</p>
-                    <div class="letter-definitions">
-                        <div><strong>Serif</strong><small>Hangat, klasik, bercerita.</small></div>
-                        <div><strong>Sans-serif</strong><small>Bersih, lugas, bersahaja.</small></div>
-                    </div>
-                    <p class="tiny-note">Bentuk huruf ikut menentukan bagaimana sebuah pesan terasa.</p>
-                </aside>
-            </div>
-        </section>
+    <div class="ticker" aria-label="Topik ruangkata">
+      <div class="ticker-track">
+        <span>kata &amp; ruang</span><b>✳</b><span>bentuk &amp; makna</span><b>✳</b><span>huruf &amp; rasa</span><b>✳</b><span>kata &amp; ruang</span><b>✳</b>
+      </div>
+    </div>
 
-        <section class="experiments page-width">
-            <div class="section-meta"><span>03 / TIGA KATA, TIGA RASA</span><span>BERMAIN DENGAN LATAR &amp; HURUF</span></div>
-            <div class="experiment-grid">
-                <article class="experiment exp-yellow">
-                    <span class="micro-heading">01 - LETTER SPACING</span>
-                    <h3 class="spaced">j e d a</h3>
-                    <p>Ruang kecil diantara kesibukan.<br>Tarik napas. Nikmati sekarang.</p>
-                    <code>letter spacing: .4em;</code>
-                </article>
-                <article class="experiment exp-red">
-                    <span class="micro-heading">02 - FONT STYLE</span>
-                    <h3><em>tumbuh.</em></h3>
-                    <p>Tak harus terlihat setiap hari.<br>Akar pun bergerak dalam sunyi.</p>
-                    <code>font-style: italic;</code>
-                </article>
-                <article class="experiment exp-grid">
-                    <span class="micro-heading">03 - TEXT TRANSFORM</span>
-                    <h3 class="uppercase">BERANI</h3>
-                    <p>Mulai sebelum merasa siap.<br>Satu langkah sudah berarti.</p>
-                    <code>text-transform: uppercase;</code>
-                </article>
-            </div>
-            <div class="section-end">✦</div>
-        </section>
-        
-    </main>
+    <section class="feature page-width" id="catatan">
+      <div class="section-meta"><span>01 / CATATAN PILIHAN</span><span>MEMBACA DENGAN PERLAHAN</span></div>
+      <div class="feature-grid">
+        <article class="article">
+          <div class="article-meta"><span>TENTANG KESEHARIAN</span><span>3 MENIT BACA</span></div>
+          <h2>Seni menemukan<br>jeda di tengah <em>riuh.</em></h2>
+          <p class="lead"><em>Tidak semua ruang harus diisi. Tidak semua waktu<br class="desktop-only"> harus berlari.</em></p>
+          <p class="dropcap">Pagi datang tanpa terburu-buru. Cahaya menyelinap lewat tirai, menyentuh sudut meja, lalu berhenti di halaman buku yang semalam belum selesai dibaca. Di luar, kota mulai menyusun suaranya. Di dalam, seseorang tengah mencoba mengumpulkan cerita.</p>
+          <p>Kita sering lupa bahwa jeda juga bagian dari perjalanan. Berhenti sebentar bukan berarti kehilangan arah. Kadang, justru dalam diam, kita mendengar hal-hal yang selama ini tertutup oleh kesibukan.</p>
+          <p class="closing-line">Hari ini, beri dirimu ruang untuk sekadar ada.</p>
+          <div class="article-rule"><span>✦</span></div>
+        </article>
+        <aside class="letter-card">
+          <div class="card-top"><span>CATATAN PINGGIR</span><span>↗</span></div>
+          <div class="big-letters">Aa<span>.</span></div>
+          <p class="micro-heading">SERIF MEETS SANS-SERIF</p>
+          <p class="letter-quote">Dua karakter berbeda.<br>Satu cerita yang sama.</p>
+          <div class="letter-definitions">
+            <div><strong>Serif</strong><small>Hangat, klasik, bercerita.</small></div>
+            <div><strong>Sans-serif</strong><small>Bersih, lugas, bersahaja.</small></div>
+          </div>
+          <p class="tiny-note">Bentuk huruf ikut menentukan bagaimana sebuah pesan terasa.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="quote-section" id="kutipan">
+      <div class="quote-inner page-width">
+        <span class="quote-mark">“</span>
+        <div class="section-meta"><span>02 / KATA YANG TINGGAL</span><span>SEBUAH PENGINGAT KECIL</span></div>
+        <blockquote>Pelan-pelan bukan berarti tertinggal.<br> Bisa jadi, kamu sedang<br><em>menikmati perjalanan.</em></blockquote>
+        <div class="quote-foot"><span>— CATATAN RUANG KATA</span><span>take your time.</span></div>
+      </div>
+    </section>
+
+    <section class="experiments page-width">
+      <div class="section-meta"><span>03 / TIGA KATA, TIGA RASA</span><span>BERMAIN DENGAN LATAR &amp; HURUF</span></div>
+      <div class="experiment-grid">
+        <article class="experiment exp-yellow">
+          <span class="micro-heading">01 — LETTER SPACING</span>
+          <h3 class="spaced">j e d a</h3>
+          <p>Ruang kecil di antara kesibukan.<br>Tarik napas. Nikmati sekarang.</p>
+          <code>letter-spacing: .4em;</code>
+        </article>
+        <article class="experiment exp-red">
+          <span class="micro-heading">02 — FONT STYLE</span>
+          <h3><em>tumbuh.</em></h3>
+          <p>Tak harus terlihat setiap hari.<br>Akar pun bergerak dalam sunyi.</p>
+          <code>font-style: italic;</code>
+        </article>
+        <article class="experiment exp-grid">
+          <span class="micro-heading">03 — TEXT TRANSFORM</span>
+          <h3 class="uppercase">BERANI</h3>
+          <p>Mulai sebelum merasa siap.<br>Satu langkah sudah berarti.</p>
+          <code>text-transform: uppercase;</code>
+        </article>
+      </div>
+      <div class="section-end">✦</div>
+    </section>
+
+    <section class="lab page-width" id="laboratorium">
+      <div class="lab-intro">
+        <span class="micro-heading">04 / LABORATORIUM MINI</span>
+        <h2>Kata yang sama.<br><em>Rasa yang berbeda.</em></h2>
+        <p>Geser, pilih, dan lihat bagaimana CSS<br>mengubah suasana sebuah kalimat.</p>
+      </div>
+      <div class="lab-sample">
+        <p class="sample-word">Ruang untuk bertumbuh.</p>
+        <p>Setiap huruf memiliki karakter. Ketika bentuknya berubah, suasana dan kesan yang hadir pun ikut berbeda.</p>
+      </div>
+    </section>
+
+    <section class="closing page-width">
+      <span class="micro-heading">SEBELUM KAMU PERGI</span>
+      <p>Kalimat sederhana bisa jadi istimewa.</p>
+      <em>Tergantung bagaimana kamu memberinya ruang.</em>
+      <a href="#atas">Kembali ke atas ↑</a>
+    </section>
+  </main>
+
+  <footer class="site-footer page-width">
+    <a class="brand" href="#atas">ruang<span>kata.</span></a>
+    <p>DIBUAT UNTUK DIBACA. DIRANCANG UNTUK DIRASA.</p>
+    <span>LATIHAN CSS / VOL. 01</span>
+  </footer>
 </body>
 </html>
